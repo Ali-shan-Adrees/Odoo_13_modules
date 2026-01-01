@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_eusol_company_policy,eusol.company.policy,model_eusol_company_policy,base.group_user,1,0,0,0
+access_eusol_company_policy_edit,eusol.company.policy.edit,model_eusol_company_policy,eusol_company_policy.group_eusol_company_policy_edit,1,1,1,1

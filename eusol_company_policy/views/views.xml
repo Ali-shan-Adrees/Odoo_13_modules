@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- Tree View -->
+	<record id="eusol_company_policy_tree_view" model="ir.ui.view">
+		<field name="name">eusol.company.policy.tree</field>
+		<field name="model">eusol.company.policy</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name" />
+				<field name="short_details" class="o_text_ellipsis"/>
+			</tree>
+		</field>
+	</record>
+	<!-- Form View -->
+	<record id="eusol_company_policy_form_view" model="ir.ui.view">
+		<field name="name">eusol.company.policy.form</field>
+		<field name="model">eusol.company.policy</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="name" />
+						<field name="details" widget="html" />
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<!-- Action to Open the View -->
+	<record id="action_eusol_company_policy" model="ir.actions.act_window">
+		<field name="name">Company Policies</field>
+		<field name="res_model">eusol.company.policy</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<!-- Menu Item -->
+	<menuitem id="menu_eusol_company_policy" name="Company Policies" action="action_eusol_company_policy" sequence="2" web_icon="eusol_company_policy,static/description/icon.png" />
+</odoo>

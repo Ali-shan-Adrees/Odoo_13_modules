@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_eusol_company_policy_edit" model="res.groups">
+        <field name="name">Eusol Company Policy Editor</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+        <field name="comment">Allows editing of Eusol Company Policy records</field>
+    </record>
+</odoo>

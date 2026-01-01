@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+		<record id="policy_1" model="eusol.company.policy">
+			<field name="name">Employee Ethics &amp; Behavior Policy</field>
+			<field name="details">
+				<![CDATA[
+		  EUSOL Company Policies
+1. Salary Transfer
+
+Your monthly salary will be credited directly to your bank account.
+
+Salary will be transferred no later than the 5th of each month.
+
+2. Probation Period
+
+The probation period will be as stated in the offer letter or decided at the time of the interview.
+
+3. Working Hours
+
+Office timings: 10:30 a.m. to 7:00 p.m.
+
+Grace period for late arrival: 20 minutes.
+
+Employees must complete 8 working hours daily at office premises.
+
+Break period: 1 hour.
+
+4. Leave Policy
+
+Annual leave quota: 18 days (from January 1st to December 31st).
+
+Any leaves beyond this quota will be unpaid.
+
+Unapproved leave will result in salary deduction.
+
+3 short leaves = 1 full day leave.
+
+1-hour late arrival = 1 short leave.
+
+4-hour late arrival = half-day leave.
+
+5. Increment Policy
+
+Employees are eligible for an annual increment after completing 1 year.
+
+Increment may be delayed by 1–2 months, but arrears will be paid.
+
+Employees on resignation period will not be entitled to an increment.
+
+6. Late Sitting Policy
+
+Employees working beyond regular hours for company tasks (with pre-approval) may receive:
+
+A cash benefit, or
+
+An adjustment to offset future late arrivals.
+
+Supervisor approval is required to qualify.
+
+This ensures fair recognition of extra work.
+
+7. Performance-Based Salary Policy
+
+Applies to all employees under the performance-based system.
+
+Performance will be evaluated monthly.
+
+Consistently poor performance (despite warnings) may result in a salary adjustment.
+
+8. Resignation & Termination Policy
+
+Clearance form signed by the supervisor is mandatory for dues and experience letter.
+
+Clearance will be made:
+
+After notice period in case of resignation.
+
+After 30 days in case of termination.
+
+Experience letter will be issued within 1 week after clearance submission.
+
+30-day notice period is mandatory for full & final settlement.
+
+No leave is allowed during resignation period (will be treated as unpaid leave).
+
+Immediate resignation or incomplete notice will result in no salary & no experience letter.
+
+Resignation during probation period = no salary entitlement.
+
+9. Confidentiality
+
+All matters regarding appointment and compensation are strictly confidential.
+
+Employees must treat them as such.
+
+10. Policies & Benefits
+
+Benefits and terms of employment will follow company policies.
+
+The company reserves the exclusive right to update policies at any time.
+
+11. Company Property
+
+All facilities or inventory provided remain company property.
+
+Must be returned when required or upon leaving the company.
+
+Any damage or loss will be charged to the employee.
+
+12. Data Security
+
+All data regarding Eusol is highly confidential.
+
+Employees are prohibited from misusing or sharing company data.
+
+Breach of data security may result in serious action.
+
+13. Employee Ethics & Behavior
+
+Employees must uphold the highest standards of ethics and professionalism:
+
+Respect colleagues and maintain a positive work environment.
+
+Adhere to company values and avoid conflicts of interest.
+
+Refrain from harassment, discrimination, or inappropriate behavior.
+
+Maintain honesty and transparency in all business dealings.</P>
+			<ul>
+				<li>Respect colleagues and maintain a positive work environment.</li>
+				<li>Adhere to company values and avoid conflicts of interest.</li>
+				<li>Refrain from harassment, discrimination, or inappropriate behavior.</li>
+				<li>Maintain honesty and transparency in all business dealings.</li>
+			</ul>
+		]]>
+			</field>
+		</record>
+		<record id="policy_2" model="eusol.company.policy">
+			<field name="name">EUSOL Company Policies</field>
+			<field name="details">
+				<![CDATA[
+			<p>This policy outlines the general guidelines for <b>EUSOL operations</b>.</p>
+			<p>Employees must comply with all company rules and regulations as outlined in the employee handbook.</p>
+		]]>
+			</field>
+		</record>
+		<record id="policy_3" model="eusol.company.policy">
+			<field name="name">Attendance, Leave, and Timesheet Policy</field>
+			<field name="details">
+				<![CDATA[
+			<p>Employees must adhere to the <b>attendance and leave policies</b> to ensure operational efficiency.</p>
+			<ol>
+				<li>Submit timesheets by the end of each week.</li>
+				<li>Leave applications must be approved by the supervisor.</li>
+			</ol>
+		]]>
+			</field>
+		</record>
+		<record id="policy_4" model="eusol.company.policy">
+			<field name="name">EUSOL Provident Fund Policy</field>
+			<field name="details">
+				<![CDATA[
+			<p>The <b>Provident Fund</b> is designed to provide financial security for employees post-retirement.</p>
+			<p>Contributions are made monthly by both employee and employer as per company policy.</p>
+		]]>
+			</field>
+		</record>
+		<record id="policy_5" model="eusol.company.policy">
+			<field name="name">EUSOL Health Insurance Policy</field>
+			<field name="details">
+				<![CDATA[
+			<p>All employees are eligible for <b>health insurance</b> coverage as part of the company benefits.</p>
+			<p>Coverage includes medical consultations, hospitalization, and select outpatient services.</p>
+		]]>
+			</field>
+		</record>
+	</data>
+</odoo>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="view_performance_analysis_search" model="ir.ui.view">
+		<field name="name">performance.analysis.search</field>
+		<field name="model">performance.analysis</field>
+		<field name="arch" type="xml">
+			<search>
+				<field name="employee_id" />
+				<field name="department_id" />
+				<filter name="filter_date" string="Date" date="create_date" />
+				<!-- <filter name="this_month" string="Month" domain="[('analysis_date','>=', (context_today()).strftime('%%Y-%%m-01'))]" /> -->
+				<group expand="0" string="Group By">
+					<filter name="group_month" string="Month" context="{'group_by': 'date_from:month'}" />
+					<filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}" />
+					<filter name="group_department" string="Department" context="{'group_by': 'department_id'}" />
+				</group>
+			</search>
+		</field>
+	</record>
+	<!-- Tree View -->
+	<record id="view_performance_analysis_tree" model="ir.ui.view">
+		<field name="name">performance.analysis.tree</field>
+		<field name="model">performance.analysis</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="employee_id" />
+				<field name="department_id" />
+				<field name="date_from" />
+				<field name="date_to" />
+				<field name="total_internal_hours" />
+				<field name="total_client_hours" />
+				<field name="state" />
+			</tree>
+		</field>
+	</record>
+	<!-- Form View -->
+	<record id="view_performance_analysis_form" model="ir.ui.view">
+		<field name="name">performance.analysis.form</field>
+		<field name="model">performance.analysis</field>
+		<field name="arch" type="xml">
+			<form string="Performance Analysis">
+				<header>
+					<button name="action_draft" type="object" string="Reset to Draft" class="oe_highlight" attrs="{'invisible':[('state','!=','done')]}" />
+					<button name="action_done" type="object" string="Done" class="oe_highlight" attrs="{'invisible':[('state','!=','draft')]}" />
+					<field name="state" widget="statusbar" />
+				</header>
+				<sheet>
+					<group>
+						<group>
+							<field name="employee_id" attrs="{'readonly': [('state', '=', 'done')]}" />
+							<field name="date_from" attrs="{'readonly': [('state', '=', 'done')]}" />
+							<field name="total_internal_hours" readonly="1" />
+						</group>
+						<group>
+							<field name="weekly_summ" invisible="1" />
+							<field name="monthly_summ" invisible="1" />
+							<field name="department_id" readonly="1" />
+							<field name="date_to" attrs="{'readonly': [('state', '=', 'done')]}" />
+							<field name="fetch_done" invisible="1" />
+							<field name="fetch_Ts_done" invisible="1" />
+							<field name="total_client_hours" readonly="1" attrs="{'readonly': [('state', '=', 'done')]}" />
+						</group>
+						<group>
+							<button name="action_fetch_tasks" type="object" string="Fetch Tasks" class="oe_highlight" style="margin-bottom: 10px;" />
+							<!-- attrs="{'invisible': [('fetch_done', '==', True)]}" -->
+						</group>
+						<group>
+							<button name="action_fetch_timesheets" type="object" string="Fetch Timesheets" class="oe_highlight" />
+							<!-- attrs="{'invisible': [('fetch_Ts_done', '==', True)]}" -->
+						</group>
+					</group>
+					<notebook>
+						<page string="Tasks">
+							<field name="task_line_ids" readonly="1">
+								<tree editable="bottom">
+									<field name="project_id" />
+									<field name="task_id" />
+									<field name="stage_id" />
+									<field name="internal_hours" string="Internal Hours" sum="Internal Hours" />
+									<button name="action_view_task" type="object" string="View Task" icon="fa-external-link" />
+								</tree>
+							</field>
+						</page>
+						<page string="Timesheets">
+							<field name="timesheet_line_ids" readonly="1" context="{'group_by':'project_id'}">
+								<tree editable="bottom">
+									<field name="date" />
+									<field name="project_id" />
+									<field name="task_id" />
+									<field name="name" />
+									<field name="internal_hours" />
+									<field name="unit_amount" sum="Total" />
+								</tree>
+							</field>
+						</page>
+						<page string="Performance Factors">
+							<field name="performance_lines" attrs="{'readonly': [('state', '=', 'done')]}">
+								<tree editable="bottom">
+									<field name="start_date_new" />
+									<field name="end_date_new" />
+									<field name="submit_timesheets" />
+									<field name="productivity" />
+									<field name="work_quality" />
+									<field name="consistency" />
+									<field name="communication_skills" />
+									<field name="punctuality" />
+									<field name="client_relations" />
+									<field name="coworker_relations" />
+									<field name="responsibility" />
+									<field name="leadership_skills" />
+									<field name="technical_skills" />
+									<field name="daily_meeting_participation" />
+									<field name="hr_policy_compliance" />
+									<field name="manager_review" />
+									<field name="hr_review" />
+									<field name="comments" />
+								</tree>
+							</field>
+						</page>
+						<page string="Weekly Summary">
+							<button name="action_calculate_weekly_summary" type="object" string="Weekly Summary" class="oe_highlight" style="margin-bottom: 10px;" />
+							<!-- attrs="{'invisible': [('weekly_summ', '==', True)]}" -->
+							<field name="weekly_summary" attrs="{'readonly': [('state', '=', 'done')]}">
+								<tree editable="bottom" create="false" delete="false">
+									<field name="week_number" />
+									<field name="manager_review" />
+									<field name="hr_review" />
+									<field name="comments" />
+									<field name="performance_score_weekly" />
+								</tree>
+							</field>
+						</page>
+						<page string="Monthly Performance">
+							<button name="action_calculate_monthly_performance" type="object" string="Monthly Performance" class="oe_highlight" style="margin-bottom: 10px;" />
+							<!-- attrs="{'invisible': [('monthly_summ', '==', True)]}"  -->
+							<field name="monthly_performance" attrs="{'readonly': [('state', '=', 'done')]}">
+								<tree editable="bottom" create="false" delete="false">
+									<field name="employee_name" />
+									<field name="manager_review" />
+									<field name="hr_review" />
+									<field name="comments" />
+									<field name="performance_score_monthly" />
+								</tree>
+							</field>
+						</page>
+					</notebook>
+				</sheet>
+				<div class="oe_chatter">
+					<field name="message_follower_ids" widget="mail_followers" />
+					<field name="activity_ids" widget="mail_activity" />
+					<field name="message_ids" widget="mail_thread" />
+				</div>
+			</form>
+		</field>
+	</record>
+	<!--- PIVOT -->
+	<record id="view_performance_analysis_monthly_pivot" model="ir.ui.view">
+		<field name="name">performance.analysis.pivot</field>
+		<field name="model">performance.analysis</field>
+		<field name="arch" type="xml">
+			<pivot>
+				<field name="employee_id" type="row" />
+				<field name="department_id" type="row" />
+			</pivot>
+		</field>
+	</record>
+	<!-- Action to open views -->
+	<record id="action_performance_analysis" model="ir.actions.act_window">
+		<field name="name">Performance Analysis</field>
+		<field name="res_model">performance.analysis</field>
+		<field name="view_mode">tree,form</field>
+		<field name="search_view_id" ref="view_performance_analysis_search" />
+	</record>
+	<menuitem id="menu_performance_analysis_root" name="Performance Analysis" action="action_performance_analysis" sequence="1" web_icon="performance_analysis,static/description/icon.png" />
+</odoo>

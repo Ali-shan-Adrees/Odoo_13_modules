@@ -1,0 +1,7 @@
+.o_text_ellipsis {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 400px; /* Adjust as needed */
+    display: inline-block;
+}

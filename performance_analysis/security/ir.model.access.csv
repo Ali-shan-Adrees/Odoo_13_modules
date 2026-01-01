@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_performance_analysis,performance.analysis,model_performance_analysis,base.group_user,1,1,1,1
+access_performance_analysis_task_line_user,access_performance_analysis_task_line_user,model_performance_analysis_task_line,,1,1,1,1
+access_performance_timesheet_user,access.performance.timesheet.user,model_performance_analysis_timesheet,,1,1,1,1
+access_performance_line,access.performance.line,model_performance_line,,1,1,1,1
+access_performance_summary,access.performance.summary,model_performance_summary,,1,1,1,1
+access_performance_monthly,access.performance.monthly,model_performance_monthly,,1,1,1,1

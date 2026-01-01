@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="action_performance_analysis_report" model="ir.actions.report">
+		<field name="name">Performance Analysis Excel Report</field>
+		<field name="model">performance.analysis</field>
+		<field name="report_type">xlsx</field>
+		<field name="report_name">performance_analysis.performance_analysis_xlsx</field>
+		<field name="report_file">performance_analysis.performance_analysis_xlsx</field>
+		<field name="binding_model_id" ref="performance_analysis.model_performance_analysis"/>
+		<field name="binding_type">report</field>
+	</record>
+	
+	<!-- <record id="view_performance_analysis_form_inherit" model="ir.ui.view">
+		<field name="name">performance.analysis.form.inherit</field>
+		<field name="model">performance.analysis</field>
+		<field name="inherit_id" ref="performance_analysis.view_performance_analysis_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//form/header" position="inside">
+				<button name="%(action_performance_analysis_report)d" style="margin-left:10px;" type="action" string="Generate Report" class="oe_highlight"/>
+			</xpath>
+		</field>
+	</record> -->
+</odoo>
