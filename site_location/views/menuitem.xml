@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem
+        id="sale.menu_sale_site_location" 
+        name="Site Locations" 
+        parent="sale.sale_order_menu" 
+        action="site_location.action_site_location"
+        sequence="21"
+        />
+</odoo>

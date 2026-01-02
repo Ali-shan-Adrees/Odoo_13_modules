@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<odoo>
+	<data>
+		<!-- Paper format -->
+		<record id="internal_transfer_payment_report_format" model="report.paperformat">
+			<field name="name">Internal Transfer Payment Report</field>
+			<field name="default" eval="True" />
+			<field name="format">A5</field>
+			<field name="orientation">Portrait</field>
+			<field name="margin_top">15</field>
+			<field name="margin_bottom">15</field>
+			<field name="margin_left">2</field>
+			<field name="margin_right">2</field>
+			<field name="header_line" eval="False" />
+			<field name="header_spacing">10</field>
+			<field name="dpi">90</field>
+		</record>
+		<!-- Report action -->
+		<record id="internal_transfer_payment_report_action" model="ir.actions.report">
+			<field name="name">Internal Transfer Payment Report</field>
+			<field name="model">internal.transfer.payment</field>
+			<field name="report_type">qweb-pdf</field>
+			<field name="report_name">internal_transfer_payment_report.internal_transfer_payment_report</field>
+			<field name="report_file">internal_transfer_payment_report.internal_transfer_payment_report</field>
+			<field name="print_report_name">'Internal Transfer Payment - %s' % (object.name)</field>
+			<field name="binding_model_id" ref="internal_transfer_payment.model_internal_transfer_payment" />
+			<field name="binding_type">report</field>
+			<field name="paperformat_id" ref="internal_transfer_payment_report_format" />
+		</record>
+	</data>
+</odoo>

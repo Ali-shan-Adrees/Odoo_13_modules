@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="internal_transfer_payment_report" name="Internal Transfer Payment Report">
+		<t t-call="web.html_container">
+			<t t-call="web.internal_layout">
+			<t t-foreach="docs" t-as="o">
+				<div class="page">
+					<style type="text/css">
+					.main_wraper {
+						width: 100%;
+						margin: 0 auto;
+					}
+
+					.main_div {
+						width: 100%;
+					}
+
+					.left_div {
+						width: 50%;
+						float: left;
+						font-size: 14px;
+					}
+
+					.right_div {
+						width: 50%;
+						float: left;
+						font-size: 14px;
+					}
+
+					.section-title {
+						text-align: center;
+					}
+
+					.w_20 {
+						float: left;
+						width: 20%;
+						font-size: 14px;
+					}
+
+					.w_20 p {
+						margin: 5px;
+					}
+
+					.clear_float {
+						width: 1px;
+						float: none;
+						clear: both;
+						height: 1px;
+					}
+					</style>
+					<div class="main_wraper">
+					
+						<br /><br /><br />
+
+						<h4 class="section-title">
+							<b>Internal Payment:</b>
+							<span t-esc="o.name or ''" />
+						</h4>
+						<div style="main_div">
+							<div class="left_div">
+								<p>
+									<b>Date:</b>
+									&#160;
+									<t t-esc="o.date" />
+								</p>
+								<p style="text-transform: capitalize;">
+									<b>Status:</b>
+									&#160;
+									<t t-esc="o.state" />
+								</p>
+								<p>
+									<b>From: </b>
+									&#160;
+									<t t-esc="o.journal_id.name" />
+								</p>
+							</div>
+							<div class="right_div">
+								<p>
+									<b>Payment Amount:</b>
+									&#160;
+									<t t-esc="'{:,.2f}'.format(o.amount or 0.0)" />
+									<t t-esc="o.currency_id.symbol" />
+								</p>
+								<p>
+									<b>Remarks:</b>
+									&#160;
+									<t t-esc="o.remarks" />
+								</p>
+								<p>
+									<b>To: </b>
+									&#160;
+									<t t-esc="o.destination_journal_id.name" />
+								</p>
+							</div>
+						</div>
+						<br class="clear_float" />
+						<div style="margin-top: none important!;">
+							<div class="w_20">
+								<p style="color: white;">-</p>
+								<p>Sign</p>
+								<p>Name</p>
+								<p>Date</p>
+							</div>
+							<div class="w_20">
+								<p><b>Prepared by</b> </p>
+								<p>_____________</p>
+								<p>_____________</p>
+								<p>_____________</p>
+							</div>
+							<div class="w_20">
+								<p><b>Checked by</b></p>
+								<p>_____________</p>
+								<p>_____________</p>
+								<p>_____________</p>
+							</div>
+							<div class="w_20">
+								<p><b>Authorised by</b> </p>
+								<p>_____________</p>
+								<p>_____________</p>
+								<p>_____________</p>
+							</div>
+							<div class="w_20">
+								<p><b>Received by</b> </p>
+								<p>_____________</p>
+								<p>_____________</p>
+								<p>_____________</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</t>
+			</t>
+		</t>
+	</template>
+</odoo>
